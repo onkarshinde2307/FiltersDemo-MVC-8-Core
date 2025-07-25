@@ -1,8 +1,6 @@
 # 🚀 FiltersDemo - MVC 8 Core
 
-A complete demo project to understand all **ASP.NET Core MVC 8 Filters** step-by-step — with clean logging, explanation, and full code 💡
-
----
+A complete demo project to understand all **ASP.NET Core MVC 8 Filters** step-by-step — with clean logging, screenshots, explanation, and full code 💡
 
 ## 📚 Filters Covered
 
@@ -14,65 +12,101 @@ A complete demo project to understand all **ASP.NET Core MVC 8 Filters** step-by
 | 📤 Result          | `IResultFilter`           | Code before/after result rendered   |
 | 💥 Exception       | `IExceptionFilter`        | Catch and handle errors globally    |
 
----
+## 🧠 How Filters Work
 
-## 🖼️ Screenshot
+- Filters execute in a **pipeline** — each filter type runs in a specific order.
+- They are used to inject logic **before and after** the MVC request hits controller actions or results.
+- Filters are helpful for:
+  - Logging
+  - Authentication/Authorization
+  - Exception handling
+  - Modifying request/response
+- You can apply filters:
+  - ✅ **Globally** via `Program.cs`
+  - ✅ **At Controller or Action Level** using `[ServiceFilter]` or `[TypeFilter]`
+- You can also create **custom filters** by implementing:
+  - `IActionFilter`
+  - `IResultFilter`
+  - `IAuthorizationFilter`
+  - `IExceptionFilter`
+  - `IResourceFilter`
 
-> Project view with filters in action
-
-![Home Screenshot](./screenshot/FiltersHome.png)
-
----
-
-## 🏗️ Project Structure
+## 🏗️ Folder Structure
 
 FiltersDemo-In-MVC8-Core/
 │
 ├── Controllers/
-│ └── HomeController.cs
+│   └── HomeController.cs
+│
 ├── Filters/
-│ ├── CustomAuthorizationFilter.cs
-│ ├── TimerActionFilter.cs
-│ ├── CustomExceptionFilter.cs
-│ └── CustomResultFilter.cs
+│   ├── CustomAuthorizationFilter.cs
+│   ├── TimerActionFilter.cs
+│   ├── CustomExceptionFilter.cs
+│   └── CustomResultFilter.cs
+│
+├── Models/
+│   └── (Your model files, if any)
+│
+├── Properties/
+│   └── launchSettings.json
+│
+├── Screenshots/
+│   └── FiltersHome.png
+│
 ├── Views/
-│ └── Home/
-│ └── Index.cshtml
-├── screenshot/
-│ └── FiltersHome.png
-└── Program.cs
- 
+│   └── Home/
+│       ├── Index.cshtml
+│       └── Privacy.cshtml
+│
+├── wwwroot/
+│   └── (Static files like CSS, JS, images)
+│
+├── bin/
+│   └── Debug/
+│       └── net8.0/
+│
+├── obj/
+│
+├── FiltersDemo-In-MVC8-Core.csproj
+├── FiltersDemo-In-MVC8-Core.csproj.user
+├── Program.cs
+├── appsettings.Development.json
+└── README.md ✅
 
-## 🧠 How Filters Work
 
-- Filters execute in a **pipeline** — each filter type runs **in a specific order**.
-- You can apply filters:
-  - 🔹 **Globally** (in `Program.cs`)
-  - 🔸 **On Controller or Action** using `[ServiceFilter]` or `[TypeFilter]`
-- You can also create **custom filters** by implementing interfaces like `IActionFilter`, `IResultFilter`, etc.
+## 🖼️ Screenshot
 
----
+> Filters in action (Home page)
 
-## ✨ Run the Project
+![Home Screenshot](./Screenshots/FiltersHome.png)
+
+## 🚀 How to Run
 
 ```bash
 dotnet run
-Then open:
+Then open your browser:
+
+arduino
+Copy code
 http://localhost:xxxx/Home/Index
+You’ll see filters executing and logging in the terminal. Colored outputs are done using:
 
-Check your terminal output for colored logs using Console.ForegroundColor.
+csharp
+Copy code
+Console.ForegroundColor = ConsoleColor.Magenta;
+Console.WriteLine("Logging from filter");
+Console.ResetColor();
+💻 Technologies Used
+✅ ASP.NET Core MVC 8
 
-📦 Technologies Used
-.NET 8
+✅ .NET 8 SDK
 
-ASP.NET Core MVC
+✅ C#
 
-C#
+✅ Visual Studio 2022
 
-Visual Studio 2022
+✅ Git & GitHub
 
-Git & GitHub
-
-🔗 Author
+👨‍💻 Author
 Made with ❤️ by Onkar Shinde
-📫 GitHub Profile
+🔗 GitHub: onkarshinde2307
