@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FiltersDemo-In-MVC8-Core.props" />
+</Project>

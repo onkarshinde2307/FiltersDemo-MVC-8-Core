@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "MVC 8 Filters Demo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="text-primary mb-4">🎯 ASP.NET Core MVC 8 Filters Demo</h1>
+
+    <div class="alert alert-info">
+        This page helps you <strong>understand how filters work</strong> in MVC 8 by showing their <strong>execution order</strong> and purpose.
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Authorization Filter -->
+        <div class="col-md-6">
+            <div class="card border-warning shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">🔒 Authorization Filter</h5>
+                    <p class="card-text">Runs <strong>first</strong>. Checks if the user is allowed to access the resource.</p>
+                    <p class="text-muted">Implements <code>IAuthorizationFilter</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resource Filter -->
+        <div class="col-md-6">
+            <div class="card border-info shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-info">📦 Resource Filter</h5>
+                    <p class="card-text">Runs <strong>before & after</strong> model binding. Useful for caching, initializing resources.</p>
+                    <p class="text-muted">Implements <code>IResourceFilter</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Filter -->
+        <div class="col-md-6">
+            <div class="card border-success shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-success">⚙️ Action Filter</h5>
+                    <p class="card-text">Runs <strong>before & after</strong> the controller action. Great for logging, validation, etc.</p>
+                    <p class="text-muted">Implements <code>IActionFilter</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Filter -->
+        <div class="col-md-6">
+            <div class="card border-primary shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">📤 Result Filter</h5>
+                    <p class="card-text">Runs <strong>before & after</strong> the result is sent (view or JSON). Modify or inspect results.</p>
+                    <p class="text-muted">Implements <code>IResultFilter</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exception Filter -->
+        <div class="col-md-12">
+            <div class="card border-danger shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-danger">💥 Exception Filter</h5>
+                    <p class="card-text">Runs <strong>only when an exception is thrown</strong> in the pipeline. Handles errors gracefully.</p>
+                    <p class="text-muted">Implements <code>IExceptionFilter</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="text-center">
+        <a href="/Home/Index" class="btn btn-outline-success btn-lg me-2">
+            ✅ Run Normal Flow
+        </a>
+        <a href="/Home/Throw" class="btn btn-outline-danger btn-lg">
+            💥 Trigger Exception
+        </a>
+    </div>
+</div>
